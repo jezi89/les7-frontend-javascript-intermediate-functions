@@ -14,6 +14,20 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
+ function cumLaudeGrades(x) {
+     let isCumlaudeGrade = 0;
+
+     for (let i = 0; i < x.length; i++) {
+        if (x[i] >= 8) {
+            isCumlaudeGrade++;
+        }
+    }
+     return isCumlaudeGrade;
+}
+
+console.log(cumLaudeGrades(grades));
+
+
 // ---- Verwachte uitkomst: 6
 
 
@@ -27,8 +41,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
-
-
+console.log(cumLaudeGrades(grades));
+console.log(cumLaudeGrades([6, 4, 5]));
+console.log(cumLaudeGrades([8, 9, 4, 6, 10]));
+// extra = [];
+// function cumLaude(grades, extra) {
+//     myFunction(grades);
+//     myFunction(extra)
+// }
+//
+// cumLaude(grades)
+// cumLaude([6, 4, 5])
+// cumLaude([8, 9, 4, 6, 10])
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -42,6 +66,17 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+function averageGrades(x) {
+    let isTotal = 0;
+ let Average = 0;
+    for (let i = 0; i < x.length; i++) {
+        isTotal+= x[i];
+        Average = isTotal/x.length
+    }
+    console.log(Average);
+}
+
+averageGrades(grades)
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
