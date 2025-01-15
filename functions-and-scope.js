@@ -73,10 +73,10 @@ function averageGrades(x) {
         isTotal+= x[i];
         Average = isTotal/x.length
     }
-    console.log(Average);
+    return Average
 }
 
-averageGrades(grades)
+console.log(averageGrades(grades))
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -92,11 +92,29 @@ averageGrades(grades)
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+let roundTo = 2;
+function RoundedGrades() {
+    return averageGrades(grades).toFixed(roundTo)}
 
-
+console.log(RoundedGrades())
 
 
 /* Bonusopdracht: hoogste cijfer */
+
+
+
+function highestGrade(y) {
+    let highestGrade = y[0];
+
+    for (let i = 0; i < y.length; i++) {
+        if (y[i] > highestGrade) {
+            highestGrade = y[i];
+        }
+    }
+    return highestGrade;
+    }
+
+console.log(highestGrade(grades));
 
 /* 3a: Script schrijven  */
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:

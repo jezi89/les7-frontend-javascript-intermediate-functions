@@ -4,12 +4,22 @@
 
 /* Opdracht  1 */
 // Schrijf een functie genaamd getEmailDomain, die een emailadres verwacht en de domeinnaam teruggeeft. Een domeinnaam is hetgeen dat na het @ in het adres staat
+
 // ---- Verwachte uitkomsten:
 // getEmailDomain("n.eeken@novi-education.nl") geeft novi-education.nl
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+let eMail = "";
 
+function getEmailDomain(eMail) {
+// const myEmail =
+const extensions = eMail.split("@");
+const  domain = extensions[1]
+ return domain;
+}
+
+console.log(getEmailDomain("n.eeken@novi-education.nl"));
 
 
 /* Opdracht  2 */
@@ -20,6 +30,18 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function typeOfEmail(eMail) {
+ const domain = getEmailDomain(eMail);
+  if (domain === "novi.nl") {
+   console.log("medewerker")
+  } else if (domain === "novi-education.nl") {
+   console.log("student")
+  } else {
+   console.log("extern")
+  }
+}
+
+typeOfEmail("novi.nlaapjesk@outlook.com")
 
 
 /* Opdracht  3 */
