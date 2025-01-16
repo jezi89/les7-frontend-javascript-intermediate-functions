@@ -20,6 +20,8 @@ const  domain = extensions[1]
 }
 
 console.log(getEmailDomain("n.eeken@novi-education.nl"));
+console.log(getEmailDomain("t.mellink@novi.nl"));
+console.log(getEmailDomain("a.wiersma@outlook.com"));
 
 
 /* Opdracht  2 */
@@ -41,9 +43,10 @@ function typeOfEmail(eMail) {
   }
 }
 
+typeOfEmail("n.eeken@novi-education.nl")
+typeOfEmail("t.mellink@novi.nl")
 typeOfEmail("novi.nlaapjesk@outlook.com")
-
-
+typeOfEmail("a.wiersma@outlook.com")
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
 // Een emailadres is valide wanneer:
@@ -56,6 +59,10 @@ typeOfEmail("novi.nlaapjesk@outlook.com")
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+// We specify a range of characters in the first part, excluding commas, and check for at least one occurrence (indicated by the plus sign).
+// Then, we specifically look for an @ symbol, followed by another range of characters excluding commas.
+// Next, we expect a dot (escaped as \. because it is a regex special symbol), followed by a range excluding commas and dots, and finally the end of the string without spaces.
 
 let pattern = /^[^,]+@[^,]+\.[^,.]+$/
 function Emailvalidator(eMail) {
