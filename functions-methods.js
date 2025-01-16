@@ -56,3 +56,14 @@ typeOfEmail("novi.nlaapjesk@outlook.com")
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+let pattern = /^[^,]+@[^,]+\.[^,.]+$/
+function Emailvalidator(eMail) {
+return pattern.test(eMail)
+}
+
+console.log(Emailvalidator("n.eeken@novi.nl"));
+console.log(Emailvalidator("tessmellink@novi.nl"));
+console.log(Emailvalidator("n.eekenanovi.nl"));
+console.log(Emailvalidator("n.eeken@novinl."));
+console.log(Emailvalidator("tessmellink@novi,nl"));
