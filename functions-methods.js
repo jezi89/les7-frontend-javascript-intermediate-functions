@@ -60,11 +60,14 @@ typeOfEmail("a.wiersma@outlook.com")
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
 
+// Mijn eerste regex attern was simel, maar is niet geschikt voor veel edge cases: /^[^,]+@[^,]+\.[^,.]+$/
+// Hij werkte als volgt:
 // We specify a range of characters in the first part, excluding commas, and check for at least one occurrence (indicated by the plus sign).
 // Then, we specifically look for an @ symbol, followed by another range of characters excluding commas.
 // Next, we expect a dot (escaped as \. because it is a regex special symbol), followed by a range excluding commas and dots, and finally the end of the string without spaces.
 
-let pattern = /^[^,]+@[^,]+\.[^,.]+$/
+// Most used Regex Email validator pattern
+let pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
 function Emailvalidator(eMail) {
 return pattern.test(eMail)
 }
