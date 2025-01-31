@@ -14,6 +14,20 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
+ function cumLaudeGrades(x) {
+     let isCumlaudeGrade = 0;
+
+     for (let i = 0; i < x.length; i++) {
+        if (x[i] >= 8) {
+            isCumlaudeGrade++;
+        }
+    }
+     return isCumlaudeGrade;
+}
+
+console.log(cumLaudeGrades(grades));
+
+
 // ---- Verwachte uitkomst: 6
 
 
@@ -27,8 +41,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
-
-
+console.log(cumLaudeGrades(grades));
+console.log(cumLaudeGrades([6, 4, 5]));
+console.log(cumLaudeGrades([8, 9, 4, 6, 10]));
+// extra = [];
+// function cumLaude(grades, extra) {
+//     myFunction(grades);
+//     myFunction(extra)
+// }
+//
+// cumLaude(grades)
+// cumLaude([6, 4, 5])
+// cumLaude([8, 9, 4, 6, 10])
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -42,6 +66,17 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+function averageGrades(x) {
+    let isTotal = 0;
+ let Average = 0;
+    for (let i = 0; i < x.length; i++) {
+        isTotal+= x[i];
+        Average = isTotal/x.length
+    }
+    return Average
+}
+
+console.log(averageGrades(grades))
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -57,11 +92,29 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+let roundTo = 2;
+function RoundedGrades() {
+    return averageGrades(grades).toFixed(roundTo)}
 
-
+console.log(RoundedGrades())
 
 
 /* Bonusopdracht: hoogste cijfer */
+
+
+
+function highestGrade(y) {
+    let highestGrade = y[0];
+
+    for (let i = 0; i < y.length; i++) {
+        if (y[i] > highestGrade) {
+            highestGrade = y[i];
+        }
+    }
+    return highestGrade;
+    }
+
+console.log(highestGrade(grades));
 
 /* 3a: Script schrijven  */
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:

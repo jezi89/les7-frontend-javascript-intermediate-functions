@@ -4,12 +4,24 @@
 
 /* Opdracht  1 */
 // Schrijf een functie genaamd getEmailDomain, die een emailadres verwacht en de domeinnaam teruggeeft. Een domeinnaam is hetgeen dat na het @ in het adres staat
+
 // ---- Verwachte uitkomsten:
 // getEmailDomain("n.eeken@novi-education.nl") geeft novi-education.nl
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+let eMail = "";
 
+function getEmailDomain(eMail) {
+// const myEmail =
+const extensions = eMail.split("@");
+const  domain = extensions[1]
+ return domain;
+}
+
+console.log(getEmailDomain("n.eeken@novi-education.nl"));
+console.log(getEmailDomain("t.mellink@novi.nl"));
+console.log(getEmailDomain("a.wiersma@outlook.com"));
 
 
 /* Opdracht  2 */
@@ -20,8 +32,21 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function typeOfEmail(eMail) {
+ const domain = getEmailDomain(eMail);
+  if (domain === "novi.nl") {
+   console.log("medewerker")
+  } else if (domain === "novi-education.nl") {
+   console.log("student")
+  } else {
+   console.log("extern")
+  }
+}
 
-
+typeOfEmail("n.eeken@novi-education.nl")
+typeOfEmail("t.mellink@novi.nl")
+typeOfEmail("novi.nlaapjesk@outlook.com")
+typeOfEmail("a.wiersma@outlook.com")
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
 // Een emailadres is valide wanneer:
@@ -34,3 +59,21 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+// Mijn eerste regex attern was simel, maar is niet geschikt voor veel edge cases: /^[^,]+@[^,]+\.[^,.]+$/
+// Hij werkte als volgt:
+// We specify a range of characters in the first part, excluding commas, and check for at least one occurrence (indicated by the plus sign).
+// Then, we specifically look for an @ symbol, followed by another range of characters excluding commas.
+// Next, we expect a dot (escaped as \. because it is a regex special symbol), followed by a range excluding commas and dots, and finally the end of the string without spaces.
+
+// Most used Regex Email validator pattern
+let pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+function Emailvalidator(eMail) {
+return pattern.test(eMail)
+}
+
+console.log(Emailvalidator("n.eeken@novi.nl"));
+console.log(Emailvalidator("tessmellink@novi.nl"));
+console.log(Emailvalidator("n.eekenanovi.nl"));
+console.log(Emailvalidator("n.eeken@novinl."));
+console.log(Emailvalidator("tessmellink@novi,nl"));
